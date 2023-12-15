@@ -47,5 +47,34 @@
 
             <a-entity camera></a-entity>
         </a-scene>
+        <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const scene = document.querySelector('a-scene');
+          //PC
+          scene.addEventListener('click', () => {
+                console.log('Model clicked'); //  確認事件是否觸發
+                //  這裡新增切換動畫的程式碼
+                const model = document.querySelector('#bowser-model');
+                // 範例動畫剪輯名稱數組，需要根據您的模型中的動畫剪輯名稱進行修改
+                const clips = ['0|standing_0', '0|sitting_0', '0|shake_0'];
+                let currentClipIndex = parseInt(model.dataset.clipIndex) || 0;
+                currentClipIndex = (currentClipIndex + 1) % clips.length;
+                model.setAttribute('animation-mixer', `clip: ${clips[currentClipIndex]}; loop: repeat`);
+                model.dataset.clipIndex = currentClipIndex + 1; // 更新剪輯索引
+          });
+          //moble
+          scene.addEventListener('touchstart', () => {
+                console.log('Model touched'); // 確認事件是否觸發
+                // 這裡新增切換動畫的程式碼
+                const model = document.querySelector('#bowser-model');
+                // 範例動畫剪輯名稱數組，需要根據您的模型中的動畫剪輯名稱進行修改
+                const clips = ['0|standing_0', '0|sitting_0', '0|shake_0'];
+                let currentClipIndex = parseInt(model.dataset.clipIndex) || 0;
+                currentClipIndex = (currentClipIndex + 1) % clips.length;
+                model.setAttribute('animation-mixer', `clip: ${clips[currentClipIndex]}; loop: repeat`);
+                model.dataset.clipIndex = currentClipIndex + 1; // 更新剪輯索引
+          }); 
+        });  
+    </script>
     </body>
 </html>
