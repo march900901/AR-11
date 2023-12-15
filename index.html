@@ -71,7 +71,7 @@
                 // 這裡新增切換動畫的程式碼
                 const model = document.querySelector('#bowser-model');
                 // 範例動畫剪輯名稱數組，需要根據您的模型中的動畫剪輯名稱進行修改
-                const clips = ['JiNengGongJi1_Object_4', 'JiNengGongJi2_Object_4', 'PuTongGongJi_Object_4', 'SiWang_Object_4','XingZou_Object_4','ZhanLi_Object_4'];
+                const clips = ['JiNengGongJi1', 'JiNengGongJi2', 'PuTongGongJi', 'SiWang','XingZou','ZhanLi'];
                 let currentClipIndex = parseInt(model.dataset.clipIndex) || 0;
                 currentClipIndex = (currentClipIndex + 1) % clips.length;
                 model.setAttribute('animation-mixer', `clip: ${clips[currentClipIndex]}; loop: repeat`);
